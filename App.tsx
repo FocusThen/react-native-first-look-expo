@@ -1,14 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, Button } from 'react-native'
 
 export default function App() {
+  const [count, setCount] = useState<number>(0)
+  console.log('Hello world')
+  const handleIncrement = () => {
+    setCount(count + 1)
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>{count}</Text>
+      <Button
+        onPress={() => {
+          handleIncrement()
+        }}
+        title="Increment"
+      />
       <StatusBar style="auto" />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -18,4 +30,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
